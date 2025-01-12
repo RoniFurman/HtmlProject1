@@ -1,0 +1,149 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  width: 88vw;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+
+  grid-template-rows: repeat(6, 1fr);
+  grid-template-areas:
+    "photo1 photo2 row1 row1"
+    "photo3 photo4 row1 row1"
+    "photo5 photo6 photo7 photo8"
+    "row2 row2 photo9 photo10"
+    "row2 row2 photo11 photo12"
+    "row2 row2 photo13 photo14";
+}
+
+.item {
+  background-color: #fff;
+}
+
+.photo1 {
+  grid-area: photo1;
+}
+.photo2 {
+  grid-area: photo2;
+}
+.photo3 {
+  grid-area: photo3;
+}
+.photo4 {
+  grid-area: photo4;
+}
+.photo5 {
+  grid-area: photo5;
+}
+.photo6 {
+  grid-area: photo6;
+}
+.photo7 {
+  grid-area: photo7;
+}
+.photo8 {
+  grid-area: photo8;
+}
+.photo9 {
+  grid-area: photo9;
+}
+.photo10 {
+  grid-area: photo10;
+}
+.photo11 {
+  grid-area: photo11;
+}
+.photo12 {
+  grid-area: photo12;
+}
+.photo13 {
+  grid-area: photo13;
+}
+.photo14 {
+  grid-area: photo14;
+}
+.row1 {
+  grid-area: row1;
+  background-color: #020253;
+  width: 613px;
+  height: 550px;
+}
+.text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 350px;
+  h1 {
+    color: #0ee1da;
+    font-size: 3.8rem;
+    text-align: center;
+  }
+  p {
+    color: #f9f9f9;
+    text-align: center;
+    font-size: 1.25rem;
+  }
+}
+.row2 {
+  grid-area: row2;
+  background-color: #8e097c;
+  width: 613px;
+  height: 835px;
+}
+.form {
+  display: flex;
+  justify-content: center;
+  direction: rtl;
+}
+input {
+  width: 500px;
+  height: 60px;
+  background-color: #e5eeff;
+  border-bottom: 5px solid #0ee1da;
+}
+
+textarea {
+  resize: none;
+  width: 500px;
+  height: 120px;
+  background-color: #e5eeff;
+  border-bottom: 5px solid #0ee1da;
+}
+
+button {
+  width: 500px;
+
+  height: 60px;
+  background-color: #0ee1da;
+}
+
+@media (max-width: 576px) {
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100vw;
+  }
+  img {
+    width: 250px;
+    height: 200px;
+  }
+  .form {
+    display: flex;
+  }
+  input {
+    width: 277px;
+    height: 33px;
+  }
+  textarea {
+    width: 277px;
+    height: 66px;
+  }
+  button {
+    width: 277px;
+    height: 33px;
+  }
+}

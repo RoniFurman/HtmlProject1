@@ -1,0 +1,136 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  width: 100vw;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 100px 200px 350px 100px;
+  gap: 15px;
+}
+.bg {
+  font-size: 1.2rem;
+  text-align: center;
+  font-family: fraunces;
+  padding: 15px;
+  color: black;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header {
+  grid-column: 1/5;
+}
+.whatsapp {
+  position: absolute;
+  top: 30;
+  left: 30px;
+}
+.linebg {
+  background-color: #fdbd03;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 300px;
+  height: 10px;
+}
+h1 {
+  color: #fdbd03;
+  text-align: center;
+}
+.main {
+  grid-column: 1/4;
+  grid-row: 2/4;
+  direction: rtl;
+}
+p {
+  color: #020253;
+}
+.formDiv {
+  display: flex;
+  text-align: right;
+  justify-content: right;
+}
+input {
+  width: 300px;
+  height: 30px;
+  background-color: #e5eeff;
+  border-bottom: 5px solid #fdbd03;
+}
+textarea {
+  width: 300px;
+  height: 70px;
+  background-color: #e5eeff;
+  border: none;
+  border-bottom: 5px solid #fdbd03;
+}
+button {
+  background-color: #fdbd03;
+  width: 200px;
+  height: 40px;
+  border: none;
+  cursor: pointer;
+}
+.aside {
+  grid-row: 4/2;
+  grid-column: 4/5;
+}
+.aside img {
+  width: 300px;
+}
+.footer {
+  grid-column: 1/5;
+}
+a {
+  text-decoration: none;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #fdbd03;
+  align-items: center;
+  display: flex;
+
+  justify-content: center;
+}
+.footer {
+  display: flex;
+  width: 350px;
+  justify-content: space-evenly;
+  margin-bottom: 20px;
+}
+
+.bottomLineDiv {
+  background-color: #fdbd03;
+  width: 500px;
+  height: 10px;
+  position: absolute;
+  border-bottom: 0;
+  left: 0;
+}
+
+@media (max-width: 576px) {
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .whatsapp {
+    display: none;
+  }
+  .formDiv {
+    justify-content: center;
+    text-align: center;
+    display: flex;
+  }
+  .footer {
+    display: flex;
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 10px;
+  }
+}
