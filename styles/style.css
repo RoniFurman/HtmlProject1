@@ -77,11 +77,11 @@ header {
     font-size: 1.5rem;
   }
 }
-.topSection button {
+#topSection button {
   margin-top: 20px;
   background-color: #40d0ed;
 }
-.topSection button:hover {
+#topSection button:hover {
   background-color: #2d8fa2;
 }
 .icons {
