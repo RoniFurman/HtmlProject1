@@ -203,6 +203,9 @@ button {
   border: 1px solid rgb(223, 222, 222);
   border-radius: 5px 5px;
 }
+#submitBtn:hover {
+  background-color: #2d8fa2;
+}
 footer {
   background-color: #40d0ed;
   min-height: 20vh;
