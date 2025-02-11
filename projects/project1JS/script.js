@@ -5,7 +5,8 @@ const btn = document.querySelector("#btn");
 const h1 = document.getElementById("city");
 const pTemp = document.getElementById("temp");
 const desc = document.getElementById("description");
-const icon = document.getElementById("weatherIcon");
+const icon = document.querySelector(".icon");
+const errorMessage = document.querySelector("#errorMessage");
 function getWeather(city) {
   fetch(URL + city) //promise
     .then((res) => res.json()) //response
@@ -13,10 +14,14 @@ function getWeather(city) {
       h1.innerText = data.name;
       console.log(data);
 
-      pTemp.innerText = data.main.temp + " Celsius";
+      pTemp.innerText = data.main.temp + " c°";
       desc.innerText = data.weather[0].description;
-      icon.innerText = data.weather.icon;
       console.log(data.weather.icon);
+      if (data.main.temp <= 20) {
+        icon.innerHTML = "⛅️  ";
+      } else {
+        icon.innerHTML = "😎  ";
+      }
     });
 }
 

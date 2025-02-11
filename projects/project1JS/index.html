@@ -3,24 +3,37 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Orbitron:wght@400..900&family=Permanent+Marker&family=Satisfy&family=Sorts+Mill+Goudy:ital@0;1&display=swap"
+      rel="stylesheet" />
     <link rel="stylesheet" href="./style.css" />
     <script src="./script.js" defer></script>
     <title>Weather</title>
   </head>
   <body>
-    <div class="container">
-      <div class="form-control">
-        <label for="inputCity">Search:</label
-        ><input type="text" id="inputCity" />
-        <button id="btn">Send</button>
-      </div>
-
-      <div class="weatherInfo">
-        <h1 id="city"></h1>
-        <p id="temp"></p>
-        <img src="" alt="" id="weatherIcon" />
-        <p id="description"></p>
-        <p id="errorMessage"></p>
+    <div class="wrapper">
+      <h1>Check The Weather</h1>
+      <div class="container">
+        <div class="form-control">
+          <label for="inputCity">Search For City: </label><br /><input
+            type="text"
+            id="inputCity" />
+          <br />
+          <button id="btn">Send</button>
+        </div>
+        <div class="weatherInfo">
+          <h1 id="city"></h1>
+          <br />
+          <p id="temp"></p>
+          <br />
+          <div class="icon"></div>
+          <br />
+          <p id="description"></p>
+          <br />
+          <p id="errorMessage"></p>
+        </div>
       </div>
     </div>
   </body>
