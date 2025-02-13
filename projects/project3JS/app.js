@@ -1,4 +1,3 @@
-//Global selections and variables
 const colorDivs = document.querySelectorAll(".color");
 const generateBtn = document.querySelector(".generate");
 const sliders = document.querySelectorAll('input[type="range"]');
@@ -9,7 +8,7 @@ const lockButton = document.querySelectorAll(".lock");
 const closeAdjustments = document.querySelectorAll(".close-adjustment");
 const sliderContainers = document.querySelectorAll(".sliders");
 let initialColors;
-//SAVE THE PALLETS TO THE LOCAL STORAGE
+
 let savedPalettes = [];
 
 generateBtn.addEventListener("click", randomColors);
@@ -47,7 +46,6 @@ lockButton.forEach((button, index) => {
   });
 });
 
-//Color Generator
 function generateHex() {
   const hexColor = chroma.random();
   return hexColor;
@@ -67,13 +65,11 @@ function randomColors() {
       initialColors.push(chroma(randomColor).hex());
     }
 
-    //Add the color to the bg
     div.style.backgroundColor = randomColor;
     hexText.innerText = randomColor;
 
-    //Check for contrast
     checkTextContrast(randomColor, hexText);
-    //Initial Colorize Sliders
+
     const color = chroma(randomColor);
     const sliders = div.querySelectorAll(".sliders input");
     const hue = sliders[0];
@@ -82,9 +78,9 @@ function randomColors() {
 
     colorizeSliders(color, hue, brightness, saturation);
   });
-  //Reset Inputs
+
   resetInputs();
-  //Check For Button Contrast
+
   adjustButton.forEach((button, index) => {
     checkTextContrast(initialColors[index], button);
     checkTextContrast(initialColors[index], lockButton[index]);
@@ -101,15 +97,13 @@ function checkTextContrast(color, text) {
 }
 
 function colorizeSliders(color, hue, brightness, saturation) {
-  //Scale Saturation
   const noSat = color.set("hsl.s", 0);
   const fullSat = color.set("hsl.s", 1);
   const scaleSat = chroma.scale([noSat, color, fullSat]);
-  //Scale Brightness
+
   const midBright = color.set("hsl.l", 0.5);
   const scaleBright = chroma.scale(["black", midBright, "white"]);
 
-  //Update Input Colors
   saturation.style.backgroundImage = `linear-gradient(to right,${scaleSat(
     0
   )}, ${scaleSat(1)})`;
@@ -139,7 +133,6 @@ function hslControls(e) {
 
   colorDivs[index].style.backgroundColor = color;
 
-  //Colorize inputs/sliders
   colorizeSliders(color, hue, brightness, saturation);
 }
 function updateTextUI(index) {
@@ -148,7 +141,7 @@ function updateTextUI(index) {
   const textHex = activeDiv.querySelector("h2");
   const icons = activeDiv.querySelectorAll(".controls button");
   textHex.innerText = color.hex();
-  //Check Contrast
+
   checkTextContrast(color, textHex);
   for (icon of icons) {
     checkTextContrast(color, icon);
@@ -181,7 +174,7 @@ function copyToClipboard(hex) {
   el.select();
   document.execCommand("copy");
   document.body.removeChild(el);
-  //Pop up animation
+
   const popupBox = popup.children[0];
   popup.classList.add("active");
   popupBox.classList.add("active");
@@ -204,7 +197,6 @@ function lockLayer(e, index) {
   }
 }
 
-//Implement Save to palette and LOCAL STORAGE STUFF
 const saveBtn = document.querySelector(".save");
 const submitSave = document.querySelector(".submit-save");
 const closeSave = document.querySelector(".close-save");
@@ -214,7 +206,6 @@ const libraryContainer = document.querySelector(".library-container");
 const libraryBtn = document.querySelector(".library");
 const closeLibraryBtn = document.querySelector(".close-library");
 
-//Event Listeners
 saveBtn.addEventListener("click", openPalette);
 closeSave.addEventListener("click", closePalette);
 submitSave.addEventListener("click", savePalette);
@@ -250,10 +241,10 @@ function savePalette(e) {
 
   const paletteObj = { name, colors, nr: paletteNr };
   savedPalettes.push(paletteObj);
-  //Save to localStorage
+
   savetoLocal(paletteObj);
   saveInput.value = "";
-  //Generate the palette for Library
+
   const palette = document.createElement("div");
   palette.classList.add("custom-palette");
   const title = document.createElement("h4");
@@ -270,7 +261,6 @@ function savePalette(e) {
   paletteBtn.classList.add(paletteObj.nr);
   paletteBtn.innerText = "Select";
 
-  //Attach event to the btn
   paletteBtn.addEventListener("click", (e) => {
     closeLibrary();
     const paletteIndex = e.target.classList[1];
@@ -285,7 +275,6 @@ function savePalette(e) {
     resetInputs();
   });
 
-  //Append to Library
   palette.appendChild(title);
   palette.appendChild(preview);
   palette.appendChild(paletteBtn);
@@ -315,7 +304,6 @@ function closeLibrary() {
 
 function getLocal() {
   if (localStorage.getItem("palettes") === null) {
-    //Local Palettes
     localPalettes = [];
   } else {
     const paletteObjects = JSON.parse(localStorage.getItem("palettes"));
@@ -323,7 +311,6 @@ function getLocal() {
 
     savedPalettes = [...paletteObjects];
     paletteObjects.forEach((paletteObj) => {
-      //Generate the palette for Library
       const palette = document.createElement("div");
       palette.classList.add("custom-palette");
       const title = document.createElement("h4");
@@ -340,7 +327,6 @@ function getLocal() {
       paletteBtn.classList.add(paletteObj.nr);
       paletteBtn.innerText = "Select";
 
-      //Attach event to the btn
       paletteBtn.addEventListener("click", (e) => {
         closeLibrary();
         const paletteIndex = e.target.classList[1];
@@ -355,7 +341,6 @@ function getLocal() {
         resetInputs();
       });
 
-      //Append to Library
       palette.appendChild(title);
       palette.appendChild(preview);
       palette.appendChild(paletteBtn);

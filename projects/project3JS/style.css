@@ -46,7 +46,7 @@ svg {
   border-top-right-radius: 1rem;
   pointer-events: none;
   border-top-left-radius: 1rem;
-  /* We are adding an adjustemnt class */
+
   transform: translateY(100px);
   transition: all 0.5s ease-in-out;
 }
@@ -110,9 +110,7 @@ svg {
   margin: 2rem 0rem;
 }
 
-/* Slider Stuff */
 input[type="range"] {
-  -webkit-appearance: none;
   margin: 1rem 0rem;
   width: 100%;
   position: relative;
