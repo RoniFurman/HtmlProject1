@@ -21,8 +21,8 @@ class DrumKit {
   repeat() {
     let step = this.index % 8;
     const activeBars = document.querySelectorAll(`.b${step}`);
-    //Loop over the pads
-    activeBars.forEach(bar => {
+
+    activeBars.forEach((bar) => {
       bar.style.animation = `playTrack 0.3s alternate ease-in-out 2`;
       if (bar.classList.contains("active")) {
         if (bar.classList.contains("kick-pad")) {
@@ -43,10 +43,8 @@ class DrumKit {
   }
   start() {
     const interval = (60 / this.bpm) * 1000;
-    //Check if it's playing
 
     if (this.isPlaying) {
-      //Clear the interval
       clearInterval(this.isPlaying);
       console.log(this.isPlaying);
       this.isPlaying = null;
@@ -57,8 +55,6 @@ class DrumKit {
     }
   }
   updateBtn() {
-    //NULL
-
     if (!this.isPlaying) {
       this.playBtn.innerText = "Stop";
       this.playBtn.classList.add("active");
@@ -129,34 +125,32 @@ class DrumKit {
 
 const drumKit = new DrumKit();
 
-//Event Listeners
-
-drumKit.pads.forEach(pad => {
+drumKit.pads.forEach((pad) => {
   pad.addEventListener("click", drumKit.activePad);
-  pad.addEventListener("animationend", function() {
+  pad.addEventListener("animationend", function () {
     this.style.animation = "";
   });
 });
 
-drumKit.playBtn.addEventListener("click", function() {
+drumKit.playBtn.addEventListener("click", function () {
   drumKit.updateBtn();
   drumKit.start();
 });
 
-drumKit.selects.forEach(select => {
-  select.addEventListener("change", function(e) {
+drumKit.selects.forEach((select) => {
+  select.addEventListener("change", function (e) {
     drumKit.changeSound(e);
   });
 });
-drumKit.muteBtns.forEach(btn => {
-  btn.addEventListener("click", function(e) {
+drumKit.muteBtns.forEach((btn) => {
+  btn.addEventListener("click", function (e) {
     drumKit.mute(e);
   });
 });
 
-drumKit.tempoSlider.addEventListener("input", function(e) {
+drumKit.tempoSlider.addEventListener("input", function (e) {
   drumKit.changeTempo(e);
 });
-drumKit.tempoSlider.addEventListener("change", function(e) {
+drumKit.tempoSlider.addEventListener("change", function (e) {
   drumKit.updateTempo(e);
 });
