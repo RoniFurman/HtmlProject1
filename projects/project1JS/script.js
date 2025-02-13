@@ -5,7 +5,7 @@ const btn = document.querySelector("#btn");
 const h1 = document.getElementById("city");
 const pTemp = document.getElementById("temp");
 const desc = document.getElementById("description");
-const icon = document.querySelector(".icon");
+const weatherIcon = document.getElementById("weatherIcon");
 const errorMessage = document.querySelector("#errorMessage");
 function getWeather(city) {
   fetch(URL + city) //promise
@@ -17,11 +17,8 @@ function getWeather(city) {
       pTemp.innerText = data.main.temp + " c°";
       desc.innerText = data.weather[0].description;
       console.log(data.weather.icon);
-      if (data.main.temp <= 20) {
-        icon.innerHTML = "⛅️  ";
-      } else {
-        icon.innerHTML = "😎  ";
-      }
+      const icon = data.weather[0].icon;
+      weatherIcon.src = `https://openweathermap.org/img/wn/${icon}@2x.png`;
     });
 }
 
