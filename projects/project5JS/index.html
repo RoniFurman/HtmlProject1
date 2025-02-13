@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Orbitron:wght@400..900&family=Satisfy&family=Sorts+Mill+Goudy:ital@0;1&display=swap"
+      rel="stylesheet" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="./style/style.css" />
+  </head>
+  <body>
+    <div id="wrapper">
+      <div id="main">
+        <div class="mainForm">
+          <form action="" id="addForm">
+            <div class="dropdown">
+              <span>Choose an Element</span><br /><br />
+              <select id="chooseElement">
+                <option data-type="div" value="div">div</option>
+                <option data-type="h1" value="h1">h1</option>
+                <option data-type="h2" value="h2">h2</option>
+                <option data-type="p" value="p">p</option>
+              </select>
+            </div>
+            <br /><br /><br /><br /><br />
+            <br /><br />
+            <label for="">Width</label><br />
+            <br />
+            <div id="container"></div>
+            <input type="text" id="changeWidth" /><br /><br />
+            <label for="">Height</label><br />
+            <br />
+            <input type="text" id="changeHeight" /><br /><br />
+            <label for="">Background Color</label><br />
+            <br />
+            <input type="color" value="#ffffff" id="changeColor" /><br /><br />
+            <label for="">Add some Content</label><br />
+            <br />
+            <textarea name="" id="area"></textarea><br /><br />
+            <br /><br /><br />
+            <div class="dropdown">
+              <label for="font-family">Font Family:</label><br /><br />
+              <select id="chooseFont">
+                <option data-type="ariel" value="Arial">Arial</option>
+                <option data-type="fraunces" value="Fraunces">Fraunces</option>
+                <option data-type="times" value="Times New Roman">
+                  Times New Roman
+                </option>
+                <option data-type="courier" value="Courier New">
+                  Courier New
+                </option>
+              </select>
+            </div>
+            <br /><br /><br />
+            <label for="">Font Color</label><br />
+            <br />
+            <input type="color" value="#ffffff" id="fColor" /><br /><br />
+
+            <br />
+            <label for="">Font Size</label><br /><br />
+            <input type="text" id="fSize" /> REM
+          </form>
+        </div>
+        <div class="mainButtons">
+          <button id="btnAdd">Add</button>
+        </div>
+      </div>
+    </div>
+    <script src="./js/dashboard.js"></script>
+  </body>
+</html>
