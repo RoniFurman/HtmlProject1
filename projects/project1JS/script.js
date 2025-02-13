@@ -8,18 +8,30 @@ const desc = document.getElementById("description");
 const weatherIcon = document.getElementById("weatherIcon");
 const errorMessage = document.querySelector("#errorMessage");
 function getWeather(city) {
-  fetch(URL + city) //promise
-    .then((res) => res.json()) //response
-    .then((data) => {
-      h1.innerText = data.name;
-      console.log(data);
+  try {
+    fetch(URL + city)
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.cod == 200) {
+          errorMessage.innerText = "";
+          h1.innerText = data.name;
+          pTemp.innerText = data.main.temp;
+          description.innerText = data.weather[0].description;
+          const icon = data.weather[0].icon;
+          weatherIcon.src = `https://openweathermap.org/img/wn/${icon}@2x.png`;
+          console.log(data);
+        } else {
+          h1.innerText = "";
+          pTemp.innerText = "";
+          description.innerText = "";
+          weatherIcon.src = "";
 
-      pTemp.innerText = data.main.temp + " c°";
-      desc.innerText = data.weather[0].description;
-      console.log(data.weather.icon);
-      const icon = data.weather[0].icon;
-      weatherIcon.src = `https://openweathermap.org/img/wn/${icon}@2x.png`;
-    });
+          errorMessage.innerText = "City not found...";
+        }
+      });
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 btn.addEventListener("click", () => {
