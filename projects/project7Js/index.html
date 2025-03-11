@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Big+Shoulders:opsz,wght@10..72,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+      rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./script.js" defer></script>
+    <title>Trivia Game</title>
+  </head>
+  <body>
+    <div id="container">
+      <div class="game">
+        <h1>Trivia</h1>
+        <div id="questionCard">
+          <p id="question"></p>
+
+          <label for="ansA">
+            <input type="radio" name="answer" id="ansA" value="ansA" />
+            <span id="ansAText"></span> </label
+          ><br />
+          <label for="ansB">
+            <input type="radio" name="answer" id="ansB" value="ansB" />
+            <span id="ansBText"></span> </label
+          ><br />
+          <label for="ansC">
+            <input type="radio" name="answer" id="ansC" value="ansC" />
+            <span id="ansCText"></span> </label
+          ><br />
+          <label for="ansD">
+            <input type="radio" name="answer" id="ansD" value="ansD" />
+            <span id="ansDText"></span>
+          </label>
+
+          <br /><br />
+          <p id="correct"></p>
+          <button id="submit">Check</button><br /><br />
+          <button id="reset">New Game</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

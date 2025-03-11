@@ -1,0 +1,95 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.game {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 60vh;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  color: #333;
+  font-size: 1.2rem;
+  text-align: left;
+  line-height: 1.5;
+  padding: 20px;
+  margin: 20px;
+  background: rgb(78, 219, 244);
+}
+
+input {
+  text-align: center;
+  font-size: 1.2rem;
+}
+@media (max-width: 768px) {
+  .game {
+    height: 800vh;
+    font-size: 1rem;
+  }
+}
+#container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+  font-family: "Playfair Display", sans-serif;
+  color: #333;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+#container h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+#container p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+#container button {
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+#container button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+#container button:active {
+  transform: scale(0.95);
+}
+#container button:focus {
+  outline: none;
+}
+#container button:focus-visible {
+  outline: 2px solid #0056b3;
+  outline-offset: 2px;
+}
+#container button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+#container button:disabled:hover {
+  background-color: #ccc;
+  transform: none;
+}
+#container button:disabled:active {
+  transform: none;
+}
